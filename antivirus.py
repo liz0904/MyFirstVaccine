@@ -36,7 +36,7 @@ if __name__=='__main__':
     
     #커맨드라인 입력 방식 체크
     if len(sys.argv) !=2:
-        print 'Usage: antivirus.py [file]'
+        print ('Usage: antivirus.py [file]')
         exit(0)
        
     fname = sys.argv[1] #악성코드 검사 대상 파일
@@ -53,10 +53,10 @@ if __name__=='__main__':
 
         ret, vname=SearchVDB(fmd5)  # find Virus
         if ret == True:  #Compare with MD5
-            print '%s: %s' % (fname, vname)
+            print ('%s: %s' % (fname, vname))
             os.remove(fname)  #remove antiVirus File
         else :
-            print '%s : ok' %(fname)
+            print ('%s : ok' %(fname))
     else :
-            print '%s : ok' %(fname)
+            print ('%s : ok' %(fname))
 
