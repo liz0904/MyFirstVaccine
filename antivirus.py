@@ -5,6 +5,7 @@ import os
 import zlib
 import StringIO
 import scanmod
+import curemod
 
 VirusDB=[ ] #악성코드 패턴 저장
 vdb=[]  #가공된 악성코드 DB 저장
@@ -81,7 +82,7 @@ if __name__=='__main__':
     ret, vname = scanmod.ScanMD5(vdb, vsize, fname)
     if ret == True:  #Compare with MD5
         print ('%s: %s' % (fname, vname))
-        os.remove(fname)  #remove antiVirus File
+        curemod.CureDelete(fname)  #파일을 삭제함으로써 치료
     else :
          print ('%s : ok' %(fname))
 
