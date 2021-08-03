@@ -3,14 +3,23 @@ import sys
 import hashlib
 import os
 
-VirusDB=[   #MD5 Hash: Name of Virus
-    '68:44d88612fea8a8f36de82e1278abb02f:EICAR Test', #eicar.txt
-    '62:99e22455ab3caa37e63a262eceb443dd: Dummy Test'  #dummy.txt
-]
-
+VirusDB=[ ] #악성코드 패턴 저장
 vdb=[]  #가공된 악성코드 DB 저장
 vsize=[]    #악성코드의 파일 크기 저장
 
+#virus.db 파일에서 악성코드 패턴 로딩
+def LoadVirusDB():
+    fp=open('virus.db', 'rb')
+
+    while True:
+        line=fp.readline()  #악성코드 패턴 한줄읽기
+        if not line : break
+
+        line=line.strip()   #엔터 제거
+        VirusDB.append(line)
+    fp.close()
+
+#VirusDB 가공 후 vdb에 저장
 def MakeVirusDB():
     for pattern in VirusDB:
         t=[]
@@ -26,13 +35,14 @@ def MakeVirusDB():
 #악성코드 검사 함수 
 def SearchVDB(fmd5):
     for t in vdb:
-        if t[0]==fmd5:  #Compare MD5
+        if t[0]==fmd5:  #MD5 해시가 같은지 비교
             return True, t[1]   #Return Virus name
             
     return False, ''    #No Virus
 
 if __name__=='__main__':
-    MakeVirusDB()
+    LoadVirusDB()   #악성코드 패턴 읽어오기
+    MakeVirusDB()   #악성코드 DB 가공
     
     #커맨드라인 입력 방식 체크
     if len(sys.argv) !=2:
