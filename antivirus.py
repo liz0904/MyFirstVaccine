@@ -56,15 +56,26 @@ def LoadVirusDB():
     fp.close()
 
 #VirusDB 가공 후 vdb에 저장
+sdb=[]  #가공된 악성코드 DB가 저장된다.
 def MakeVirusDB():
     for pattern in VirusDB:
         t=[]
         v = pattern.split(':')
-        t.append(v[1]) #Add MD5 Hash
-        t.append(v[2]) #Add Name of Virus
-        vdb.append(t)   #Save to vdb
 
-        size=int(v[0]) #악성코드 파일 크기
+        scan_func=v[0]  #악성코드 검사 함수
+        cure_func=v[1]  #악성코드 치료 함수
+
+        if scan_func=='ScanMD5':
+            t.append(v[3])
+            t.append(v[4])
+            vdb.append(t)
+        elif scan_func=='ScanStr':
+            t.append(int(v[2]))
+            t.append(v[3])
+            t.append(v[4])
+            sdb.append(t)
+
+        size=int(v[2]) #악성코드 파일 크기
         if vsize.count(size)==0:
             vsize.append(size)
 
@@ -79,7 +90,7 @@ if __name__=='__main__':
 
     fname = sys.argv[1] #악성코드 검사 대상 파일
 
-    ret, vname = scanmod.ScanMD5(vdb, vsize, fname)
+    ret, vname = scanmod.ScanVirus(vdb, vsize, sdb, fname)
     if ret == True:  #Compare with MD5
         print ('%s: %s' % (fname, vname))
         curemod.CureDelete(fname)  #파일을 삭제함으로써 치료
