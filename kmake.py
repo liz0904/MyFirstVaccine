@@ -1,4 +1,6 @@
-#-*- coding:utf-8 -*-
+#!/usr/bin/python2.7
+#-*-coding:utf-8 -*-
+print("content-type:text/html; charset=utf-8\n")
 import sys
 import zlib
 import hashlib
