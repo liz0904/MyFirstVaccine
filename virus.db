@@ -1,3 +1,11 @@
 ScanStr:CureDelete:28:EICAR-STANDARD-ANTIVIRUS-TEST-FILE!:EICAR Test
 ScanMD5:CureDelete:62:99e22455ab3caa37e63a262eceb443dd:Dummy Test
 ScanMD5:CureDelete:52736:b8c923eb162e0ffe856c6e065753f306:UDP Flooding
+ScanMD5:CureDelete:52736:b8c923eb162e0ffe856c6e065753f306:UDP Flooding
+ScanMD5:CureDelete:16384:bb7425b82141a1c0f7d60e5106676bb1:Lab01-01.exe
+ScanMD5:CureDelete:3072:8363436878404da0ae3e46991e355b83:Lab01-02.exe
+ScanMD5:CureDelete:4752:9c5c27494c28ed0b14853b346b113145:Trojan.Win32.Inor.getjo
+ScanMD5:CureDelete:36864:625ac05fd47adc3c63700c3b30de79ab:TrojanDownloader:Win32
+ScanMD5:CureDelete:163840:290934c61de9176ad682ffdd65f0a669:Lab01-01.dll
+ScanMD5:CureDelete:7168:d537acb8f56a1ce206bc35cf8ff959c0:Lab03-01.exe(Backdoor:Win32/Poison.cb2c8e730)
+ScanMD5:CureDelete:24065:84882c9d43e23d63b82004fae74ebb61:Lab03-02.dll(Trojan/Win32)
