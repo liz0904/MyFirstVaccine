@@ -1,2 +1,3 @@
 ScanStr:CureDelete:28:EICAR-STANDARD-ANTIVIRUS-TEST-FILE!:EICAR Test
 ScanMD5:CureDelete:62:99e22455ab3caa37e63a262eceb443dd:Dummy Test
+ScanMD5:CureDelete:52736:b8c923eb162e0ffe856c6e065753f306:UDP Flooding
